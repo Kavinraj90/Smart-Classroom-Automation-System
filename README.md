@@ -4,7 +4,7 @@
 This project is an automated system designed to optimize classroom efficiency and energy management. It integrates hardware control with a web-based monitoring interface.
 
 # Project Files
-Smart Classroom system.pdf: The full documentation and theoretical background of the project.
+Smart Classroom system.pdf: The full documentation and theoretical background of the project.\n
 cv.py: The Python script responsible for the backend processing and automation logic.
 esp32.ino: The firmware code for the ESP32 microcontroller to manage hardware components.
 index.html: The frontend web interface for remote monitoring and control.
