@@ -1,0 +1,29 @@
+// Add these strings to your global variables
+const char index_html[] PROGMEM = R"rawliteral(
+<!DOCTYPE html><html>
+<body>
+  <h1>Classroom Control</h1>
+  <button onclick="fetch('/on')">Lights ON</button>
+  <button onclick="fetch('/off')">Lights OFF</button>
+  <p>Manual Mode will timeout after 30 minutes.</p>
+</body>
+</html>)rawliteral";
+
+// Update the setup() function
+void setup() {
+  // ... existing setup ...
+  server.on("/", []() { server.send(200, "text/html", index_html); });
+  
+  server.on("/on", []() {
+    isManual = true; manualTime = millis();
+    digitalWrite(light, HIGH);
+    server.send(200, "text/plain", "Lights ON");
+  });
+  
+  server.on("/off", []() {
+    isManual = true; manualTime = millis();
+    digitalWrite(light, LOW);
+    server.send(200, "text/plain", "Lights OFF");
+  });
+  server.begin();
+}
